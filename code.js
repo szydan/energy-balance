@@ -2,15 +2,14 @@ function deepClone(original) {
   return JSON.parse(JSON.stringify(original));
 }
 
-
 const base = {
     chart: {
        height: 600 // Set a fixed height for the chart
     },
     plotOptions: {
-        sankey: {
-            linkOpacity: 1 // Keeps all links fully opaque
-        }
+      sankey: {
+        linkOpacity: 1 // Keeps all links fully opaque
+      }
     },
     title: { text: '' },
     subtitle: { text: '' },
@@ -56,7 +55,7 @@ const base = {
         data: [],
         type: 'sankey',
         name: 'Sankey demo series',
-      
+
         dataLabels: {
             enabled: true, // Always show labels
             format: '{point.weight:.2f} kWh', // Format of the label
@@ -72,34 +71,34 @@ const base = {
             borderWidth: 1, // Border width
             borderColor: '#cccccc' // Border color
         }
-        
+
     }]
 
 };
 
 function calculateData({
-  //from screen with 2 circle 
+  //from screen with 2 circle
   solarToGrid = 32.82,
   solarUsed = 80.82,
   fromGrid = 137.16,
   selfConsumption = 320.94,
-  // from yearly chart - from month bar 
+  // from yearly chart - from month bar
   batteryDischarge = 313.52
 } = {}) {
 
   const solarToHouse = selfConsumption - batteryDischarge
   const solarToBattery = solarUsed - solarToHouse
   const gridToBattery = batteryDischarge - solarToBattery
-  
+
   return [
     ['Grid', 'House', fromGrid, '#a65628'],
     ['Grid', 'Battery', gridToBattery, '#a65628'],
 
-    ['Battery', 'House', batteryDischarge, '#edc949'], 
+    ['Battery', 'House', batteryDischarge, '#edc949'],
 
-    ['Solar', 'Battery', solarToBattery, '#EDC949'], 
-    ['Solar', 'House', solarToHouse, '#F6E43E'], 
-    ['Solar', 'GridExport', solarToGrid, '#ffff33'], 
+    ['Solar', 'Battery', solarToBattery, '#EDC949'],
+    ['Solar', 'House', solarToHouse, '#F6E43E'],
+    ['Solar', 'GridExport', solarToGrid, '#ffff33'],
   ];
 }
 
@@ -107,12 +106,12 @@ function calculateData({
 function produceChart({
   id,
   title,
-  //from screen with 2 circle 
+  //from screen with 2 circle
   solarToGrid = 32.82,
   solarUsed = 80.82,
   fromGrid = 137.16,
   selfConsumption = 320.94,
-  // from yearly chart - from month bar 
+  // from yearly chart - from month bar
   batteryDischarge = 313.52,
   offset = 20
 } = {}) {
@@ -120,12 +119,12 @@ function produceChart({
 
   options.title.text = title
   options.series[0].data = calculateData({
-    //from screen with 2 circle 
+    //from screen with 2 circle
     solarUsed,
     solarToGrid,
     fromGrid,
     selfConsumption,
-    // from yearly chart - from month bar 
+    // from yearly chart - from month bar
     batteryDischarge
   })
   options.series[0].nodes[2].offset = offset
@@ -138,12 +137,10 @@ produceChart({
   id: 'sep2024',
   title: 'September 2024 (4 days)',
   offset: -160,
-  //from screen with 2 circle 
   solarUsed: 20.27,
   solarToGrid: 46.65,
   fromGrid: 6.91,
   selfConsumption: 27.51,
-  // from yearly chart - from month bar 
   batteryDischarge: 18.31
 })
 
@@ -151,12 +148,10 @@ produceChart({
   id: 'oct2024',
   title: 'October 2024',
   offset: -85,
-  //from screen with 2 circle 
   solarUsed: 173.02,
   solarToGrid: 162.91,
   fromGrid: 51.21,
   selfConsumption: 348.58,
-  // from yearly chart - from month bar 
   batteryDischarge: 281.61
 })
 
@@ -164,12 +159,10 @@ produceChart({
   id: 'nov2024',
   title: 'November 2024',
   offset: 20,
-  //from screen with 2 circle 
   solarUsed: 72.42,
   solarToGrid: 56.96,
   fromGrid: 77.27,
   selfConsumption: 203.63,
-  // from yearly chart - from month bar 
   batteryDischarge: 194.56
 })
 
@@ -177,12 +170,10 @@ produceChart({
   id: 'dec2024',
   title: 'December 2024',
   offset: 50,
-  //from screen with 2 circle 
   solarUsed: 80.82,
   solarToGrid: 32.82,
   fromGrid: 137.16,
   selfConsumption: 320.94,
-  // from yearly chart - from month bar 
   batteryDischarge: 313.52
 })
 
@@ -190,12 +181,12 @@ produceChart({
   id: 'jan2025',
   title: 'January 2025',
   offset: -10,
-  //from screen with 2 circle 
+  //from screen with 2 circle
   solarUsed: 82.6,
   solarToGrid: 109.48,
   fromGrid: 87.85,
   selfConsumption: 337.68,
-  // from yearly chart - from month bar 
+  // from yearly chart - from month bar
   batteryDischarge: 314.92
 })
 
