@@ -1,0 +1,120 @@
+<html>
+<head>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/sankey.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<style>
+#csv {
+    display: none;
+}
+
+.highcharts-figure,
+.highcharts-data-table table {
+    min-width: 310px;
+    margin: 1em auto;
+}
+
+.highcharts-data-table table {
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #ebebeb;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.highcharts-data-table th {
+    font-weight: 600;
+    padding: 0.5em;
+}
+
+.highcharts-data-table td,
+.highcharts-data-table th,
+.highcharts-data-table caption {
+    padding: 0.5em;
+}
+
+.highcharts-data-table thead tr,
+.highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
+.highcharts-description {
+    margin: 0.3rem 10px;
+}
+
+.monthly-plot {
+    width: 24%;
+    display: inline-block;
+}
+</style>
+<head>
+<body>
+<h1>Energy balance in Sigen&#169; solar system (with battery)</h1>
+<figure class="highcharts-figure">
+    <div id="jan2025" class="monthly-plot"></div>
+    <div id="feb2025" class="monthly-plot"></div>
+    <div id="mar2025" class="monthly-plot"></div>
+    <div id="apr2025" class="monthly-plot"></div>
+
+    <hr/>
+    <div id="sep2024" class="monthly-plot"></div>
+    <div id="oct2024" class="monthly-plot"></div>
+    <div id="nov2024" class="monthly-plot"></div>
+    <div id="dec2024" class="monthly-plot"></div>
+</figure>
+
+<div>
+    Make your own - if you have Sigen system with a battery<br/> 
+    Fill in the numbers from the app and press Generate<br/>
+    You can see on the pictures from where to take the first 4 numbers<br/>
+    The last number "offset" is to adjust the position of the battery 
+    It can be anything from -150 to +150 just play with the number until the graph looks nice 
+
+    <br/>
+    <br/>
+    <div  style="display: inline-block;">
+    <form>
+      <label>Title</label><br/>
+      <input name="title" type="text" value="Month X"/><br/>
+      <label>Used</label><br/>
+      <input name="solarUsed" type="text" value="82.6"/><br/>
+      <label>To Grid</label><br/>
+      <input name="solarToGrid" type="text" value="109.48"/><br/>
+      <label>From grid</label><br/>
+      <input name="fromGrid" type="text" value="87.85"/><br/>
+      <label>Self-Consumption</label><br/>
+      <input name="selfConsumption" type="text" value="337.68"/><br/>
+      <label>Battery Discharge</label><br/>
+      <input name="batteryDischarge" type="text" value="314.92"/><br/>
+      <label>Battery bar offset (so it does not overlap on the plot)</label><br/>
+      <input name="offset" type="text" value="-20"/><br/>
+      <button id="generate">Generate</button>       
+    </form> 
+    </div>
+    <div style="display: inline-block;">
+      <img width="300" src="./img/first-4.jpg">
+      <img width="300" src="./img/to-year-view.jpg">
+      <img width="300" src="./img/from-yearly-view.jpg">
+    </div>   
+    <hr/>
+    <div id="generated" class="monthly-plot"></div>
+</div>    
+<script src="./code.js"></script>
+</body>
+</html>
+
+
