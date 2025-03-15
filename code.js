@@ -135,7 +135,7 @@ function produceChart({
 
 produceChart({
   id: 'sep2024',
-  title: 'September 2024 (4 days)',
+  title: 'September 2024 (only 4 days)',
   offset: -160,
   solarUsed: 20.27,
   solarToGrid: 46.65,
@@ -189,6 +189,33 @@ produceChart({
   // from yearly chart - from month bar
   batteryDischarge: 314.92
 })
+
+produceChart({
+  id: 'feb2025',
+  title: 'February 2025',
+  offset: -80,
+  //from screen with 2 circle
+  solarUsed: 56.56,
+  solarToGrid: 179.98,
+  fromGrid: 59.11,
+  selfConsumption: 306.55,
+  // from yearly chart - from month bar
+  batteryDischarge: 261.41
+})
+
+produceChart({
+  id: 'mar2025',
+  title: 'March 2025 (until 16th)',
+  offset: -140,
+  //from screen with 2 circle
+  solarUsed: 44.12,
+  solarToGrid: 173.54,
+  fromGrid: 24.28,
+  selfConsumption: 144.12,
+  // from yearly chart - from month bar
+  batteryDischarge: 104.32
+})
+
 
 document.getElementById("generate").addEventListener("click", function(event) {
     event.preventDefault(); // Prevent form submission
