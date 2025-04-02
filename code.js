@@ -205,15 +205,15 @@ produceChart({
 
 produceChart({
   id: 'mar2025',
-  title: 'March 2025 (until 16th)',
-  offset: -140,
+  title: 'March 2025 (4 days missing - no internet)',
+  offset: -80,
   //from screen with 2 circle
-  solarUsed: 44.12,
-  solarToGrid: 173.54,
-  fromGrid: 24.28,
-  selfConsumption: 144.12,
+  solarUsed: 114.21,
+  solarToGrid: 381.95,
+  fromGrid: 123.97,
+  selfConsumption: 243.79,
   // from yearly chart - from month bar
-  batteryDischarge: 104.32
+  batteryDischarge: 235.74
 })
 
 
